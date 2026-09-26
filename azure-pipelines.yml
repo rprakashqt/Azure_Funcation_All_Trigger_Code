@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: Release
+
+steps:
+  - task: UseDotNet@2
+    displayName: Use .NET SDK
+    inputs:
+      packageType: sdk
+      version: 9.0.x
+
+  - script: dotnet restore Enterprise.AzureFunctions.sln
+    displayName: Restore
+
+  - script: dotnet build Enterprise.AzureFunctions.sln --configuration $(buildConfiguration) --no-restore
+    displayName: Build
+
+  - script: dotnet test Enterprise.AzureFunctions.sln --configuration $(buildConfiguration) --no-build --collect:"XPlat Code Coverage"
+    displayName: Test
+
+  - script: dotnet publish src/Enterprise.Functions/Enterprise.Functions.csproj --configuration $(buildConfiguration) --no-build --output $(Build.ArtifactStagingDirectory)/function
+    displayName: Publish function app
+
+  - publish: $(Build.ArtifactStagingDirectory)/function
+    artifact: enterprise-functions

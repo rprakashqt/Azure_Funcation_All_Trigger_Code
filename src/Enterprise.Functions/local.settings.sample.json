@@ -1,0 +1,25 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "",
+    "DurableHubName": "enterpriseorchestration",
+    "ServiceBusConnection": "Endpoint=sb://example.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=replace-me",
+    "EventHubConnection": "Endpoint=sb://example.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=replace-me",
+    "CosmosDbConnection": "AccountEndpoint=https://example.documents.azure.com:443/;AccountKey=replace-me;",
+    "SqlConnectionString": "Server=tcp:example.database.windows.net,1433;Initial Catalog=Enterprise;Authentication=Active Directory Default;",
+    "AzureSignalRConnectionString": "Endpoint=https://example.service.signalr.net;AccessKey=replace-me;Version=1.0;",
+    "BlobContainerName": "inbound-documents",
+    "OrdersQueueName": "orders-to-fulfill",
+    "OrderEventsTopicName": "order-events",
+    "OrderEventsSubscriptionName": "payments",
+    "LoyaltyEventsSubscriptionName": "loyalty",
+    "TelemetryEventHubName": "device-telemetry",
+    "CosmosDatabaseName": "enterprise",
+    "CosmosContainerName": "customers",
+    "ReadinessProbe__Storage": "true",
+    "ReadinessProbe__ServiceBus": "true"
+  }
+}

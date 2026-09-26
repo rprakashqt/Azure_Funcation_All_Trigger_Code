@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+.git/
+.github/
+TestResults/
+local.settings.json
+*.md
+infra/
+docs/
